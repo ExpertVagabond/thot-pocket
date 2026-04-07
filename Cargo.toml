@@ -9,6 +9,7 @@ homepage = "https://github.com/ExpertVagabond/thot-pocket"
 keywords = ["avatar", "gaze", "eye-tracking", "animation", "ai"]
 categories = ["game-engines", "multimedia", "science"]
 readme = "README.md"
+exclude = ["*.pdf", "*.key", "train/", "Thot-Pocket-*"]
 
 [dependencies]
 rand = "0.8"
