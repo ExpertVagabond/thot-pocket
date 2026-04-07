@@ -4,6 +4,11 @@ version = "0.1.0"
 edition = "2021"
 description = "Eye contact intelligence for AI avatars — the missing layer between seeing and connecting"
 license = "MIT"
+repository = "https://github.com/ExpertVagabond/thot-pocket"
+homepage = "https://github.com/ExpertVagabond/thot-pocket"
+keywords = ["avatar", "gaze", "eye-tracking", "animation", "ai"]
+categories = ["game-engines", "multimedia", "science"]
+readme = "README.md"
 
 [dependencies]
 rand = "0.8"
