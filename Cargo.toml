@@ -1,0 +1,13 @@
+[package]
+name = "thot-pocket"
+version = "0.1.0"
+edition = "2021"
+description = "Eye contact intelligence for AI avatars — the missing layer between seeing and connecting"
+license = "MIT"
+
+[dependencies]
+rand = "0.8"
+glam = "0.29"
+
+[dev-dependencies]
+approx = "0.5"
