@@ -1,0 +1,4 @@
+web/pkg/
+target/
+node_modules/
+demo/.wrangler/

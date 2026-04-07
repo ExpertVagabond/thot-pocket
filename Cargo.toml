@@ -15,5 +15,8 @@ exclude = ["*.pdf", "*.key", "train/", "Thot-Pocket-*"]
 rand = "0.8"
 glam = "0.29"
 
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.2", features = ["js"] }
+
 [dev-dependencies]
 approx = "0.5"
