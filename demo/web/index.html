@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thot Pocket — Eye Contact Intelligence</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22/vision_bundle.mjs" type="module"></script>
+  <script>
+    // Make MediaPipe available globally for the input module
+    import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22/vision_bundle.mjs').then(m => {
+      window.FaceLandmarker = m.FaceLandmarker;
+      window.FilesetResolver = m.FilesetResolver;
+    }).catch(() => console.warn('MediaPipe load failed — will use simulation'));
+  </script>
+</head>
+<body>
+  <div id="loading">Loading Thot Pocket engine...</div>
+
+  <header>
+    <h1>THOT POCKET</h1>
+    <p>Eye contact intelligence for AI avatars. Feel the difference.</p>
+  </header>
+
+  <div class="panels">
+    <div id="left-panel" class="panel">
+      <div class="panel-label">
+        <h2>Standard AI</h2>
+        <p>Constant stare. No aversion. Fixed blink rate.</p>
+      </div>
+    </div>
+    <div id="right-panel" class="panel">
+      <div class="panel-label">
+        <h2>Thot Pocket</h2>
+        <p>Responsive gaze. Cognitively motivated. 25+ research papers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="hud">
+    <div id="telemetry"></div>
+  </div>
+
+  <video id="webcam" autoplay playsinline muted></video>
+  <div id="toast"></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

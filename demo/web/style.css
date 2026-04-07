@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0a0a;
+  color: #e0d8d0;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 12px 20px 8px;
+  flex-shrink: 0;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #e8ddd0;
+}
+
+header p {
+  font-size: 0.75rem;
+  color: #8a7e72;
+  margin-top: 2px;
+}
+
+.panels {
+  display: flex;
+  flex: 1;
+  gap: 2px;
+  padding: 0 12px;
+  min-height: 0;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.panel canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  flex: 1;
+}
+
+.panel-label {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 2;
+}
+
+.panel-label h2 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.panel-label p {
+  font-size: 0.6rem;
+  margin-top: 2px;
+  opacity: 0.6;
+}
+
+#left-panel { border: 1px solid rgba(180, 60, 60, 0.25); }
+#right-panel { border: 1px solid rgba(200, 160, 80, 0.3); }
+
+#left-panel .panel-label h2 { color: #b05050; }
+#right-panel .panel-label h2 { color: #c8a050; }
+
+/* HUD */
+#hud {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(20, 18, 16, 0.95);
+  border-top: 1px solid rgba(200, 160, 80, 0.15);
+}
+
+.hud-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hud-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #6a5e52;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  min-width: 50px;
+}
+
+.state-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a09888;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.state-btn:hover { background: rgba(255, 255, 255, 0.1); }
+.state-btn.active {
+  background: rgba(200, 160, 80, 0.2);
+  border-color: rgba(200, 160, 80, 0.5);
+  color: #c8a050;
+}
+
+select {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a09888;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Telemetry */
+#telemetry {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+}
+
+.tel-item { color: #6a5e52; }
+.green { color: #5a9a5a; }
+.red { color: #b05050; }
+.amber { color: #c8a050; }
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(30, 26, 22, 0.95);
+  border: 1px solid rgba(200, 160, 80, 0.3);
+  color: #c8a050;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+  max-width: 90%;
+  text-align: center;
+}
+
+#toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Loading */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #6a5e52;
+}
+
+/* Webcam preview */
+#webcam {
+  position: fixed;
+  bottom: 90px;
+  right: 16px;
+  width: 120px;
+  height: 90px;
+  border-radius: 6px;
+  border: 1px solid rgba(200, 160, 80, 0.2);
+  opacity: 0.4;
+  z-index: 10;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .panels { flex-direction: column; padding: 0 8px; }
+  #hud { flex-direction: column; gap: 8px; }
+  #telemetry { margin-left: 0; }
+  #webcam { width: 80px; height: 60px; }
+}
