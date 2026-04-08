@@ -206,10 +206,67 @@ select {
   transform: scaleX(-1);
 }
 
+/* Annotations */
+.annotation {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(200, 160, 80, 0.25);
+  color: #c8a050;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+#left-panel .annotation {
+  color: #b05050;
+  border-color: rgba(180, 60, 60, 0.3);
+}
+
+.annotation.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Mic button */
+#mic-btn {
+  min-width: 70px;
+}
+
+#mic-btn.active {
+  background: rgba(90, 154, 90, 0.2);
+  border-color: rgba(90, 154, 90, 0.5);
+  color: #5a9a5a;
+}
+
+/* Keyboard shortcuts hint */
+#shortcuts {
+  position: fixed;
+  bottom: 8px;
+  left: 16px;
+  display: flex;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  color: #3a342e;
+  z-index: 5;
+}
+
 /* Responsive */
 @media (max-width: 700px) {
   .panels { flex-direction: column; padding: 0 8px; }
   #hud { flex-direction: column; gap: 8px; }
   #telemetry { margin-left: 0; }
   #webcam { width: 80px; height: 60px; }
+  #shortcuts { display: none; }
+  .annotation { font-size: 0.5rem; }
 }
