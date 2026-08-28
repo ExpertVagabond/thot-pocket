@@ -1,5 +1,6 @@
 [package]
 name = "thot-pocket"
+authors = ["Matthew Karsten <matthewkarstenconnects@gmail.com>"]
 version = "0.1.0"
 edition = "2021"
 description = "Eye contact intelligence for AI avatars — the missing layer between seeing and connecting"
